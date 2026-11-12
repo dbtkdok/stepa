@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>STEP_A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF1F6; --surface:#FFFFFF; --ink:#101828; --muted:#566074; --line:#CBD2E0; --accent:#2F4BFF; --on-accent:#FFFFFF;
+  --display:"Space Grotesk","Noto Sans KR",system-ui,sans-serif;
+  --body:"Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo",sans-serif;
+  color-scheme:light;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0E1320;--surface:#171E30;--ink:#EEF1F8;--muted:#9AA5BD;--line:#2B3550;--accent:#7C8DFF;--on-accent:#0E1320;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#0E1320;--surface:#171E30;--ink:#EEF1F8;--muted:#9AA5BD;--line:#2B3550;--accent:#7C8DFF;--on-accent:#0E1320;color-scheme:dark}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{max-width:1040px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-family:var(--display);font-weight:700;letter-spacing:.02em;text-decoration:none;font-size:1.1rem}
+nav{display:flex;gap:18px;font-size:.9rem}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+main{max-width:1040px;margin:0 auto;padding:0 20px}
+.hero{padding:72px 0 64px}
+.hero p.lead{color:var(--muted);margin:0 0 28px;max-width:34ch}
+h1{font-family:var(--display);font-weight:700;margin:0 0 32px;line-height:.98;letter-spacing:-.03em;font-size:clamp(3rem,14vw,8.5rem)}
+h1 span{display:block}
+h1 span:nth-child(2){padding-left:.5em}
+h1 span:nth-child(3){padding-left:1em;color:var(--accent)}
+.btn{display:inline-block;background:var(--accent);color:var(--on-accent);font-weight:700;padding:14px 26px;border-radius:999px;text-decoration:none}
+.btn:hover{filter:brightness(1.08)}
+.note{color:var(--muted);font-size:.88rem;margin-top:14px}
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font-family:var(--display);font-size:clamp(1.6rem,5vw,2.4rem);margin:0 0 20px;letter-spacing:-.02em;line-height:1.2}
+.about{display:grid;gap:28px}
+@media(min-width:760px){.about{grid-template-columns:1fr 1fr;gap:56px}}
+.about p{margin:0 0 14px;max-width:46ch}
+.facts{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.facts li{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.facts b{display:block;font-family:var(--display);font-size:1.25rem}
+.facts span{color:var(--muted);font-size:.92rem}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.steps li{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:14px;padding:18px 20px}
+.steps li:nth-child(2){margin-left:min(6vw,40px)}
+.steps li:nth-child(3){margin-left:min(12vw,80px)}
+.steps li:nth-child(4){margin-left:min(18vw,120px)}
+.steps h3{margin:0 0 4px;font-family:var(--display);font-size:1.15rem}
+.steps p{margin:0;color:var(--muted);font-size:.95rem}
+.cta{text-align:left}
+.cta h2{font-size:clamp(2rem,8vw,4.5rem);line-height:1.05}
+footer{max-width:1040px;margin:0 auto;padding:28px 20px 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="logo" href="#top">STEP_A</a>
+    <nav aria-label="주요 메뉴">
+      <a href="#about">소개</a>
+      <a href="#program">프로그램</a>
+      <a href="#apply">지원</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <h1 aria-label="STEP A. 첫 걸음을 내딛다"><span>STEP</span><span>BY</span><span>STEP_A</span></h1>
+    <p class="lead">AI와 함께 내 아이디어를 웹서비스로 완성하는 4주 프로젝트. 시작은 A부터입니다.</p>
+    <a class="btn" href="https://forms.gle/TkHRdSTmF7WTH9a38" target="_blank" rel="noopener noreferrer">지원하기</a>
+  </div>
+
+  <section id="about">
+    <div class="about">
+      <div>
+        <h2>코딩 경험이 없어도 시작할 수 있습니다</h2>
+        <p>STEP_A는 아이디어만 있는 사람이 AI 바이브 코딩으로 직접 웹서비스를 만들고 공개하는 4주 프로젝트입니다.</p>
+        <p>매주 한 단계씩 나아가고, 마지막 주에는 실제 주소가 있는 내 서비스를 갖게 됩니다.</p>
+      </div>
+      <ul class="facts">
+        <li><b>4주</b><span>한 단계씩 쌓아가는 짧고 분명한 일정</span></li>
+        <li><b>1인 1서비스</b><span>각자의 아이디어로 각자의 결과물을 만듭니다</span></li>
+        <li><b>AI와 함께</b><span>코드는 AI와 쓰고, 방향은 내가 정합니다</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="program">
+    <h2>4주, 네 번의 계단</h2>
+    <ol class="steps">
+      <li><h3>1주차 · 아이디어 정하기</h3><p>만들고 싶은 서비스를 한 문장으로 정리하고 핵심 기능을 고릅니다.</p></li>
+      <li><h3>2주차 · 화면 만들기</h3><p>AI에게 요청해 첫 화면과 주요 페이지를 만들어 봅니다.</p></li>
+      <li><h3>3주차 · 기능 붙이기</h3><p>입력, 저장, 목록처럼 서비스가 실제로 동작하는 기능을 더합니다.</p></li>
+      <li><h3>4주차 · 공개하기</h3><p>다듬고 배포해서 링크 하나로 누구에게나 보여줍니다.</p></li>
+    </ol>
+  </section>
+
+  <section id="apply" class="cta">
+    <h2>더 미루면 또 다음 방학입니다.</h2>
+    <a class="btn" href="https://forms.gle/TkHRdSTmF7WTH9a38" target="_blank" rel="noopener noreferrer" id="applyBtn">지원하기</a>
+    <p class="note">지원서 확인 후 개별 연락을 통해 활동 일정을 안내드립니다.</p>
+  </section>
+</main>
+
+<footer>
+  <span>STEP_A</span>
+  <span>Make · Learn · Launch</span>
+</footer>
+</body>
+</html>
